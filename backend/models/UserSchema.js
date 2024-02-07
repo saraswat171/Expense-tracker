@@ -11,11 +11,11 @@ const UsersSchema = new mongoose.Schema({
         require: [true, "Name is required"]
     },
 
-    Income: {
-        unique: true,
-        type: Number,
-        require: [true, "Name is required"]
-    },
+    // Income: {
+    //     unique: true,
+    //     type: Number,
+    //     require: [true, "Name is required"]
+    // },
     password: {
         type: String,
         require: [true, "Name is required"]
