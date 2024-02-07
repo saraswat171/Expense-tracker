@@ -3,13 +3,14 @@ import { BrowserRouter as Router ,Route , Routes } from 'react-router-dom';
 
 import Signup from './AuthUser/Signup';
 import Login from './AuthUser/Login';
-import Home from '../Home';
+import Dashboard from '../Dashboard';
 
 function Layout() {
   return (
    <Router>
+    
     <Routes>
-        <Route path='/Home' Component={Home} />
+        <Route path='/Dashboard' Component={Dashboard} />
         <Route path='/Login' Component={Login} />
         <Route path='/' Component={Signup} />
     </Routes>

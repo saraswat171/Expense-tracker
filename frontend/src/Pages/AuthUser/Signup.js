@@ -18,15 +18,22 @@ function  Signup() {
 
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.register);
+  const success= useSelector((state)=>state.register.success)
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
   
 
-
-      dispatch(registerUser({ name, email, password }));
-   
+try{
+    dispatch(registerUser({ name, email, password }));
+    if(success===true){
+        navigate('./Login')
+    }
+}
+  catch(err){
+    alert(err);
+  } 
     
     };
 
@@ -36,7 +43,7 @@ function  Signup() {
             <form onSubmit={handleSubmit}>
                 <div className='hero-left'>
                     <div className='hero-head'>
-                        <h1>New User Sign Up Here!</h1>
+                        <h1>New User? Sign Up Here!</h1>
                         <p>Welcome! Sign Up for better experience.</p>
                     </div>
                     <div className='hero-input'>
@@ -71,7 +78,7 @@ function  Signup() {
                 </div>
             </form>
             {loading && <p>Loading...</p>}
-            {error ?<p>{error}</p> : navigate('/Login')}
+            {error &&<p>{error}</p> }
         </div>
     );
 }
